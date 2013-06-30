@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'test' });
+  res.render('index', { title: 'kawanoshinobu API' });
 };
