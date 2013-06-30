@@ -5,6 +5,8 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , task = require('./routes/task')
+  , task = require('./routes/task')
   , http = require('http')
   , path = require('path');
 
@@ -38,12 +40,13 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/task', task.list);
 
-app.get('/test', function(req, res){
-  redisClient.get("test", function (err, value) {
-    res.json({title: value});
-  });
-});
+// app.get('/task', function(req, res){
+//   redisclient.get("test", function (err, value) {
+//     res.json({title: value});
+//   });
+// });
 
 app.listen(app.get('port'), function() {
   console.log("Listening on " + app.get('port'));
