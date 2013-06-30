@@ -4,7 +4,8 @@
  */
 
 exports.list = function(req, res){
-  var page = req.param('page') || 1;
+  var page = req.param('page') || 1,
+      callback = req.param('callback') || 'callback';
 
   var data = {
     "items" : [{
@@ -46,5 +47,6 @@ exports.list = function(req, res){
     }]
   };
 
-  res.json(data);
+  res.contentType('text/javascript');
+  res.send(callback + '(' + JSON.stringify(data) + ');');
 };
