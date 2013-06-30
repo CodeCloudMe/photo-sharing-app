@@ -8,9 +8,5 @@ exports.index = function(req, res){
 
   redis.set('foo', 'bar');
 
-  redis.get('foo', function(err, value) {
-    console.log('foo is: ' + value);
-  });
-
-  res.render('index', { title: 'kawanoshinobu API' });
+  res.render('index', { title: redis.get('foo') });
 };
