@@ -9,6 +9,7 @@ exports.list = function(req, res){
 
   var data = {
     "items" : [{
+        "id": page + 1,
         "text" : "Today" + page,
         "items" : [{
               "text" : "Eat",
@@ -21,6 +22,7 @@ exports.list = function(req, res){
               "leaf" : true
           }]
     }, {
+        "id": page + 2,
         "text" : "Tomorrow" + page,
         "items" : [{
             "text" : "Watch TV",
@@ -30,9 +32,11 @@ exports.list = function(req, res){
             "leaf" : true
         }]
     }, {
+        "id": page + 3,
         "text" : "This week" + page,
         "items" : []
     }, {
+        "id": page + 4,
         "text" : "Later" + page,
         "items" : [{
             "text" : "Eat",
