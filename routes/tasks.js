@@ -4,11 +4,10 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
-var mongoUri = process.env.MONGOLAB_URI ||
-      process.env.MONGOHQ_URL ||
-      'mongodb://localhost/taskdb';
+var server = new Server('localhost', 27017, {auto_reconnect: true});
+db = new Db('taskdb', server, {safe: true});
 
-mongo.Db.connect(mongoUri, function (err, db) {
+db.open(function(err, db) {
     if(!err) {
         console.log("Connected to 'taskdb' database");
         db.collection('tasks', {safe:true}, function(err, collection) {
@@ -19,21 +18,6 @@ mongo.Db.connect(mongoUri, function (err, db) {
         });
     }
 });
-
-// var server = new Server('localhost', 27017, {auto_reconnect: true});
-// db = new Db('taskdb', server, {safe: true});
-
-// db.open(function(err, db) {
-//     if(!err) {
-//         console.log("Connected to 'taskdb' database");
-//         db.collection('tasks', {safe:true}, function(err, collection) {
-//             if (err) {
-//                 console.log("The 'tasks' collection doesn't exist. Creating it with sample data...");
-//                 populateDB();
-//             }
-//         });
-//     }
-// });
 
 exports.findById = function(req, res) {
     var id = req.params.id;
