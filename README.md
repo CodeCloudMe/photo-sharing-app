@@ -1,12 +1,11 @@
-# kawanoshinobu API
+# API
 
-Just for demonstration.
+My useful web API. Just for demonstration.
 
 ## Dependencies
 
-kawanoshinobu API uses the following technologies:
+API uses the following technologies:
 
 - [Node.js](http://nodejs.org)
-- [Redis](http://redis.io)
-- [Heroku](https://en.gravatar.com/site/implement/)
-
+- [MongoDB](http://www.mongodb.org/)
+- [Heroku](https://www.heroku.com/)

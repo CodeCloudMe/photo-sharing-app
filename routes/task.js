@@ -1,8 +1,6 @@
-
 /*
  * GET users listing.
  */
-
 exports.list = function(req, res){
   var page = req.param('page') || 1,
       callback = req.param('callback') || 'callback';
