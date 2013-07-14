@@ -1,7 +1,8 @@
 var mongo = require('mongodb');
 
 var mongoUri = process.env.MONGOLAB_URI || "mongodb://localhost/taskdb?auto_reconnnect";
-var db = null;
+var db = null,
+    BSON = mongo.BSONPure;
 
 mongo.connect(mongoUri, {}, function(err, database) {
     if(!err) {
