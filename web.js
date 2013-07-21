@@ -11,7 +11,7 @@ app.configure(function () {
     app.use(express.bodyParser());
 
     if (process.env.NODE_ENV === 'production') {
-        app.use(express.static(path.join(__dirname, 'public/build/ps/production')));
+        app.use(express.static(path.join(__dirname, 'public/build/PS/production')));
     } else {
         app.use(express.static(path.join(__dirname, 'public')));
     }
