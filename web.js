@@ -1,8 +1,8 @@
 var express = require('express'),
     path = require('path'),
     http = require('http'),
-    taskOld = require('./routes/task'),
-    task = require('./routes/tasks');
+    task = require('./routes/task'),
+    photo = require('./routes/photos');
 
 var app = express();
 
@@ -13,16 +13,19 @@ app.configure(function () {
     app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.get('/task', taskOld.list);
+app.get('/task', task.list);
 
-app.get('/tasks', task.findAll);
-app.get('/tasks/:id', task.findById);
-app.post('/tasks', task.addTask);
-app.put('/tasks/:id', task.updateTask);
-app.delete('/tasks/:id', task.deleteTask);
+app.get('/photos', photo.findAll);
+app.get('/photos/:id', photo.findById);
+app.post('/photos', photo.addPhoto);
+app.put('/photos/:id', photo.updatePhoto);
+app.delete('/photos/:id', photo.deletePhoto);
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
 
 app.listen(app.get('port'), function() {
   console.log("Listening on " + app.get('port'));
-  console.log('test');
 });
 
