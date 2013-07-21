@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "0.0.1",
-  "repository": "https://github.com/kawanoshinobu/API",
+  "repository": "https://github.com/kawanoshinobu/photo-sharing-app",
   "private": true,
   "scripts": {
     "start": "node web.js"
